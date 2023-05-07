@@ -4,40 +4,22 @@ using UnityEngine;
 
 public class Mob : MonoBehaviour
 {
-    public GameObject mobPrefab;
-    public Transform mobPrefabTransform;
-
-    float distance, radius;
-
-    void Update()
+    [SerializeField] float speed;
+    bool hasTarget;
+    Rigidbody rb;
+    private void Start()
     {
-        MoveMob();
+        rb = GetComponent<Rigidbody>();
+    }
+    private void Update()
+    {
+        move();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void move()
     {
-        if (other.CompareTag("Gate"))
-        {
-            var gate = other.GetComponent<Gate>();
-            MakeMob(gate.gateValue);
+        if(!hasTarget) { 
+            rb.velocity = Vector3.forward;
         }
-    }
-
-    private void MoveMob()
-    {
-        transform.Translate(Vector3.forward * Time.deltaTime);
-    }
-
-    private void MakeMob(int gateValue)
-    {
-        for (int i = 0; i < gateValue; i++)
-        {
-            Instantiate(mobPrefab, transform.position, Quaternion.identity);
-        }
-    }
-
-    private void FormatMob()
-    {
-
     }
 }
