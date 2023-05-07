@@ -5,11 +5,11 @@ using UnityEngine;
 public class Cannon : MonoBehaviour
 {
     public GameObject mobPrefab;
-    public Transform mobSpawn;
-    public float fireRate = 0.5f;
-    private bool shooting = false;
-    public float speed = 5f;
+    public Transform mobSpawn;  
     private bool isMoving = false;
+    private bool shooting = false;
+    public float fireRate = 0.5f;
+    public float speed = 5f;
 
     void Update()
     {
