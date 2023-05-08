@@ -10,17 +10,18 @@ public class Mob : MonoBehaviour
     string targetName;
     float detectionDistance;
     GameObject target;
+    
 
     private void Start()
     {
         detectionDistance = 15f;
         targetName = "targetCannon";
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();       
     }
 
     private void Update()
     {
-        Move();
+        Move();       
     }
 
     void Move()
@@ -45,6 +46,14 @@ public class Mob : MonoBehaviour
         else if (!hasTarget)
         {
             rb.velocity = Vector3.forward;
+        }
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "targetCannon")
+        {
+            GameHandler.score++;          
         }
     }
 }
