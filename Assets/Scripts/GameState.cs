@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-static class GameState
+public enum GameState
 {
-    enum State
-    {
-        MainMenu,
-        Playing,
-        Win
-    }
+    MainMenu,
+    Playing,
+    Win
 }

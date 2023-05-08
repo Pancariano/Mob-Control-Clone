@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem.LowLevel;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -11,9 +12,9 @@ public class EnemySpawner : MonoBehaviour
     public TMP_Text health;
     public int baseHealth;
 
-    private void Start()
-    {
-        baseHealth = 200;
+    void Start()
+    {      
+        baseHealth = 10;
         InvokeRepeating(nameof(SpawnEnemy), 0f, 5f);
     }
 
@@ -35,9 +36,13 @@ public class EnemySpawner : MonoBehaviour
         if (other.gameObject.tag == "Mob")
         {
             Destroy(other.gameObject);
-            while (baseHealth > 0)
+            if (baseHealth > 0)
             {
                 baseHealth--;
+            }
+            if ( baseHealth == 0)
+            {
+                
             }
         }
     }
