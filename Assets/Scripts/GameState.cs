@@ -8,3 +8,8 @@ public enum GameState
     Playing,
     Win
 }
+
+public class Game
+{
+    
+}
