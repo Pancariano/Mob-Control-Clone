@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        baseHealth = 200;     
+        baseHealth = 200;
         InvokeRepeating(nameof(SpawnEnemy), 0f, 5f);
     }
 
@@ -35,7 +35,10 @@ public class EnemySpawner : MonoBehaviour
         if (other.gameObject.tag == "Mob")
         {
             Destroy(other.gameObject);
-            baseHealth--;
+            while (baseHealth > 0)
+            {
+                baseHealth--;
+            }
         }
     }
 }

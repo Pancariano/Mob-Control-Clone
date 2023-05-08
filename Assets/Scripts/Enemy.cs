@@ -12,14 +12,12 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-
-        move();
+        Move();
     }
 
-    void move()
+    void Move()
     {
         rb.velocity = -Vector3.forward;
-
     }
 
     private void OnCollisionEnter(Collision other)

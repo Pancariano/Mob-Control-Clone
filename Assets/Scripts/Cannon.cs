@@ -11,15 +11,15 @@ public class Cannon : MonoBehaviour
     private bool shooting = false;
     public float fireRate = 0.5f;
     public float speed = 5f;
-    float xPosition;
-    [SerializeField] float xLimit;
+    public float xLimit = 1f;
+    public float currentX;
 
     void Update()
     {
-        xPosition = transform.position.x;
+        currentX = transform.position.x;
         ShootMob();
-        MovePlayer();       
-        xLimitControl();
+        MovePlayer();
+        LimitX();
     }
 
     private void ShootMob()
@@ -62,15 +62,16 @@ public class Cannon : MonoBehaviour
         }
     }
 
-    void xLimitControl()
+    void LimitX()
     {
-        if(xPosition <= -xLimit)
+        if (currentX >= xLimit)
         {
-            transform.position = new Vector3(-xLimit, transform.position.y, transform.position.z);
+            transform.position = new Vector3(xLimit-.001f, transform.position.y, transform.position.z);
         }
-        else if(xPosition >= xLimit)
+
+        else if (currentX <= -xLimit)
         {
-            transform.position = new Vector3(xLimit, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-xLimit+.001f, transform.position.y, transform.position.z);
         }
     }
 }
