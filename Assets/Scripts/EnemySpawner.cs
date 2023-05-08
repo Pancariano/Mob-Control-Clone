@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject enemySpawner;
+    public GameObject enemySpawner2;
     public bool lose;
     public TMP_Text health;
     public int baseHealth;
@@ -29,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
         if (!lose)
         {
             Instantiate(enemy, enemySpawner.transform.position, enemySpawner.transform.rotation);
+            Instantiate(enemy, enemySpawner2.transform.position, enemySpawner2.transform.rotation);
         }
     }
 
