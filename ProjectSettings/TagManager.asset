@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Gate
   - Mob
+  - EnemyBase
+  - Enemy
+  - targetCannon
   layers:
   - Default
   - TransparentFX

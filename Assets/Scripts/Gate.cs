@@ -33,7 +33,6 @@ public class Gate : MonoBehaviour
                     Instantiate(mob, other.transform.position + new Vector3(Random.Range(-0.1f, 0.1f), 0, Random.Range(0.15f, 0.2f)), Quaternion.identity);
                 }
             }
-
         }
     }
 }

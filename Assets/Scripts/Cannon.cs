@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Cannon : MonoBehaviour
 {
     public GameObject mobPrefab;
-    public Transform mobSpawn;  
+    public Transform mobSpawn;
     private bool isMoving = false;
     private bool shooting = false;
     public float fireRate = 0.5f;
     public float speed = 5f;
+    float xPosition;
+    [SerializeField] float xLimit;
 
     void Update()
     {
+        xPosition = transform.position.x;
         ShootMob();
-        MovePlayer();
+        MovePlayer();       
+        xLimitControl();
     }
 
     private void ShootMob()
@@ -54,6 +59,18 @@ public class Cannon : MonoBehaviour
         {
             float moveX = Input.GetAxis("Mouse X") * speed * Time.deltaTime;
             transform.Translate(new Vector3(moveX, 0, 0));
+        }
+    }
+
+    void xLimitControl()
+    {
+        if(xPosition <= -xLimit)
+        {
+            transform.position = new Vector3(-xLimit, transform.position.y, transform.position.z);
+        }
+        else if(xPosition >= xLimit)
+        {
+            transform.position = new Vector3(xLimit, transform.position.y, transform.position.z);
         }
     }
 }
