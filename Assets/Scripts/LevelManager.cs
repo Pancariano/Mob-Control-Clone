@@ -30,7 +30,7 @@ public class LevelManager : MonoBehaviour
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         int sceneIndex = SceneManager.sceneCountInBuildSettings - 1;
 
-        winPanel.gameObject.SetActive(false);
+        win= false;
 
         if (nextSceneIndex <= sceneIndex)
             SceneManager.LoadScene(nextSceneIndex);
@@ -50,6 +50,7 @@ public class LevelManager : MonoBehaviour
         if (win)
         {
             winPanel.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }
