@@ -11,7 +11,7 @@ public class Cannon : MonoBehaviour
     private bool shooting = false;
     public float fireRate = 0.5f;
     public float speed = 5f;
-    public float xLimit = 1f;
+    public float xLimit = 5f;
     public float currentX;
 
     void Update()

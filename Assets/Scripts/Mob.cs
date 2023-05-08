@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mob : MonoBehaviour
 {
-    [SerializeField] float speed = 1;
+    [SerializeField] float speed = 3;
     bool hasTarget;
     Rigidbody rb;
     string targetName;
@@ -14,7 +14,7 @@ public class Mob : MonoBehaviour
 
     private void Start()
     {
-        detectionDistance = 15f;
+        detectionDistance = 30f;
         targetName = "targetCannon";
         rb = GetComponent<Rigidbody>();       
     }

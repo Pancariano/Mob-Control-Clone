@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public bool lose;
     public TMP_Text health;
     public int baseHealth;
+    
 
     void Start()
     {      
@@ -42,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
             }
             if ( baseHealth == 0)
             {
-                
+                LevelManager.win = true;
             }
         }
     }

@@ -30,7 +30,7 @@ public class Gate : MonoBehaviour
             {
                 if (mob != null)
                 {
-                    Instantiate(mob, other.transform.position + new Vector3(Random.Range(-0.1f, 0.1f), 0, Random.Range(0.15f, 0.2f)), Quaternion.identity);
+                    Instantiate(mob, other.transform.position + new Vector3(Random.Range(-0.5f, 0.8f), 0, Random.Range(.5f, .8f)), Quaternion.identity);
                 }
             }
         }
